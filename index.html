@@ -46,24 +46,12 @@
 
 
     <script type="text/javascript">
-    var tableStyler = function(table, database) {
-    	$(table).addClass("table table-condensed table-striped");
-    };
+    	var tableStyler = function(table, database) {
+    		$(table).addClass("table table-condensed table-striped");
+    	};
     </script>
 
     <link href="https://zapier.com/engine/rss/43663/p2" rel="alternate" type="application/rss+xml" title="PETRUSINO: il feed per rimanere aggiornati sulle nuove risorese inserite" />
-		<style>
-			td span{
-    	--x-height-multiplier: 0.35;
-    	--baseline-multiplier: 0.179;
-    	font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
-    	letter-spacing: .01rem;
-    	font-style: normal;
-    	font-size: 21px;
-    	line-height: 1.58;
-    	letter-spacing: -.003em;
-			}
-		</style>
 </head>
 
 <body>
@@ -85,14 +73,14 @@
 					<li><a href="https://plus.google.com/share?url=http%3A%2F%2Fopendatacompanies.eu" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img src="img/Google+.png"></a></li>
 				</ul>
 			-->
-			</div>
-
 		</div>
-		<div class="row clearfix">
-			<div class="col-md-12 col-sm-12 column">
-				<strong>Cerca un argomento</strong>
-				<div ex:role="facet" ex:facetClass="TextSearch">
-				</div>
+
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 col-sm-12 column">
+			<strong>Cerca un argomento</strong>
+			<div ex:role="facet" ex:facetClass="TextSearch">
+			</div>
 				<!--
 				<div ex:role="facet"
 				ex:expression=".Autore"
@@ -106,30 +94,30 @@
 				data-ex-missing-label="-">
 			  </div>
 			-->
-			</div>
-			<div class="col-md-12 col-sm-12 col-xs-12 column">
-				<div ex:role="viewPanel" style="padding: 0in;">
-					<div ex:role="exhibit-view"
-					ex:viewClass="Exhibit.TabularView"
-					ex:label="Table"
-					ex:columns=".Autore,.Domande,.Risposte,.Tema"
-					ex:columnLabels="Domande & Risposte"
-					ex:columnFormats="list,list,list,list"
-					ex:sortColumn="1"
-					ex:sortAscending="true"
-					ex:tableStyler="tableStyler">
-					<div ex:role="exhibit-lens">
-						<div class="table-responsive">
-							<table class="table" ex:class-content=".territorio">
-								<tr>
-									<td class="col-md-12">
-										<span ex:content=".Tema" class="petrusino"></span>
-										<br>
-										<strong><span ex:content=".Domanda"></strong></span>
-										<br>
-										<span ex:content=".Risposta"></span>
-											<a ex:href-content=".Url" ex:onclick-subcontent="trackOutboundLink('{{.Url}}'); return false;" target="_blank">
-											<strong><span ex:content=".Autore" class="petrusino">Fonte</strong></a></span>
+		</div>
+		<div class="col-md-12 col-sm-12 col-xs-12 column">
+			<div ex:role="viewPanel" style="padding: 0in;">
+				<div ex:role="exhibit-view"
+				ex:viewClass="Exhibit.TabularView"
+				ex:label="Table"
+				ex:columns=".Domanda"
+				ex:columnLabels="Domande & Risposte"
+				ex:columnFormats="list"
+				ex:sortColumn="0"
+				ex:sortAscending="true"
+				ex:tableStyler="tableStyler">
+				<div ex:role="exhibit-lens">
+					<div class="table-responsive">
+					<table class="table">
+							<tr>
+								<td class="col-md-12">
+									<span ex:content=".Tema" class="argomento"></span>
+									<br><br>
+									<strong><span ex:content=".Domanda"></span></strong>
+									<br><br>
+									<span ex:content=".Risposta"></span>
+									<a ex:href-content=".Url" ex:onclick-subcontent="trackOutboundLink('{{.Url}}'); return false;" target="_blank">
+										<strong><span ex:content=".Autore" class="fonte">Fonte »</span></strong></a>
 									</td>
 								</tr>
 							</table>
@@ -140,8 +128,29 @@
 		</div>
 		<hr>
 		<footer>
-		 <p class="text-center">Guida per i cittadini » Ricostruzione Trasparente
-		</p>
+			<p class="text-center">Guida per i cittadini » Ricostruzione Trasparente - Il <a href="https://github.com/RicostruzioneTrasparente/faq-per-cittadini">codice è su Github</a>
+			</p>
 		</footer>
-		</body>
-		</html>
+	</body>
+	<style>
+		td span{
+			--x-height-multiplier: 0.35;
+			--baseline-multiplier: 0.179;
+			font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+			letter-spacing: .01rem;
+			font-style: normal;
+			font-size: 18px;
+			line-height: 1.58;
+			letter-spacing: -.003em;
+		}
+		span.argomento span {
+  		text-transform:uppercase;
+  		float:right;
+  		color:#c34638;
+		}
+		.fonte {
+  		float:right;
+  		color:#33416a
+		}
+	</style>
+	</html>
